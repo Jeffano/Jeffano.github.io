@@ -268,7 +268,6 @@ nav ul li a:hover::after{
 }
 .contact-main {
     flex-basis: 35%;
-
     text-align: center;
     
 }
@@ -283,6 +282,17 @@ nav ul li a:hover::after{
     color: black;
     margin-right: 15px;
     font-size: 25px;
+    
+}
+
+.btn.btn3{
+    margin-top: 30px;
+    background: #8fb1ee;
+    border: 2px solid #000000;
+}
+
+.btn.btn3:hover{
+    background:#5f8de3;
 }
 
 .social-icons{
@@ -305,13 +315,17 @@ nav ul li a:hover::after{
 .btn.btn2{
     display: inline-block;
     background: #8fb1ee;
+    margin-top: 20px;
+    border: 2px solid #000000;
+}
+.btn.btn2:hover{
+    background:#5f8de3;
 }
 
 .copyright{
     width: 100%;
     text-align: center;
     padding: 25px 0;
-    
     font-weight: 300;
     margin-top: 20px;
 }
