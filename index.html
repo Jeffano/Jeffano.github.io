@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeffano's Personal Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Software Developer</p>
+                <h1>
+                    Hi, I'm <span>Jeffano</span><br>John From Western University.
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <!--------------------------ABOUT-------------------------->
+    <div id="about"> 
+        <div class = "container">
+            <div class = "row">
+                <div class="about-col-1">
+                    <img src="images/dudeworking.jpg">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p class="about-me">
+                        Hi, my name is Jeffano John and I am currently a 2nd year Software Engineering student at Western University of Ontario. 
+                        I have a strong interest in software development and am particularly interested in machine learning and back-end development. 
+                        I chose to pursue a degree in Software Engineering because I have always been fascinated by the power of technology and 
+                        how it can be used to solve complex problems and create innovative solutions. 
+                        I am excited to continue learning and growing as a software engineer and hope to make a positive impact in the field.
+                    </p>
+                    <div class="tab-titles">
+                        <p class ="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class ="tab-links"onclick="opentab('experince')">Experince</p>
+                        <p class ="tab-links"onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id ="skills">
+                        <ul>
+                            <li><span>Java/Python</span><br>Game & Software Development</li>
+                            <li><span>HTML & CSS</span><br>Front-End Development</li>
+                            <li><span>Node.js</span><br>Server-Side Programming</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experince">
+                        <ul>
+                            <li><span>September 2022 - Present</span><br>Project Manager at Western AI</li>
+                            <li><span>May 2022 - August 2022</span><br>Junior Software Developer at The Buckmaster Institute Inc.</li>
+                            <li><span>February 2018 - June 2021</span><br>Teacher Assistant & Supervisor at Spirit of Math Schools</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2021 - Present</span><br>Bachelor of Engineering Science, Software Engineering (BESc) from Western University</li>
+                            <li><span>2017 - 2021</span><br>Ontario Secondary School Diploma (OSSD) from St. Francis Xavier Secondary School</li>
+                            <li><span>2019 - 2021</span><br>International Baccalaureate (IB) Diploma from St. Francis Xavier Secondary School</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------------------------PORTFOLIO-------------------------->
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My Portfolio</h1>
+            <div class = "work-list">
+                <div class ="work">
+                    <img src="images/salesforecasting.jpg">
+                    <div class="layer">
+                        <h3>Sales Forecasting</h3>
+                        <p>
+                            An application that can analyze data sets and predict the sales of various items depending on external factors
+                        </p>
+                    </div>
+                </div> 
+                <div class ="work">
+                    <img src="images/watercooler1.png">
+                    <div class="layer">
+                        <h3>The WaterCooler</h3>
+                        <p>
+                            A full stack application that connects employees in remote workforces with one another based on their interests
+                        </p>
+                    </div>
+                </div> 
+                <div class ="work">
+                    <img src="images/snakegame.png">
+                    <div class="layer">
+                        <h3>Python Snake Game</h3>
+                        <p>
+                            Simple game of Snake devleoped using PyGame and its built in features
+                        </p>
+                    </div>
+                </div> 
+            </div>
+            <a href="https://github.com/Jeffano" class = "btn">GitHub</a>
+        </div>
+    </div>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab")
+                tabcontent.classList.add("faded");
+            }
+            event.currentTarget.classList.add("active-link");
+            setTimeout(function () {
+                for (tabcontent of tabcontents) {
+                    tabcontent.classList.remove("active-tab");
+                    tabcontent.classList.add("faded");
+                }
+                document.getElementById(tabname).classList.remove("faded");
+                document.getElementById(tabname).classList.add("active-tab");
+            }, 0);
+        }
+    </script>
+
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+        const navLinks = sidemenu.getElementsByTagName('a');
+        
+        function openmenu(){
+            sidemenu.style.right = "0";
+        }
+
+        for (let i = 0; i < navLinks.length; i++) {
+            navLinks[i].addEventListener('click', function() {
+                sidemenu.style.right = "-200px";
+            });
+        }
+
+        
+        function closemenu(){
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+
+    <!--------------------------CONTACT-------------------------->
+    <div id="contact">
+        <div class="container">
+            <div class="contact-main">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-envelope"></i> jeffanojohn@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> (647) 913-2890</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/jeffanojohn/"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="Jeffano-Resume.pdf" download class = "btn btn2">Download Resume</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Built & Designed By Jeffano John 2022. All Rights Reserved. © </p>
+        </div>
+    </div>
+</body>
+</html>
